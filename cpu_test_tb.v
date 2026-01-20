@@ -25,20 +25,28 @@ end
 
 initial begin
   @(top_inst.m_memory.mem[1] == 8) $display("IN A: mem[1] = 8 PASS");
+  
+  @(top_inst.m_cpu.r_out == 8) $display("OUT A: out = 8 PASS");
 
   @(top_inst.m_memory.mem[2] == 8) $display("MOV B, A: mem[2] = 8 PASS");
-
+  
   @(top_inst.m_memory.mem[3] == 16) $display("ADD C, A, B: mem[3] = 16 PASS");
 
+  @(top_inst.m_cpu.r_out == 16) $display("OUT C: out = 16 PASS");
+  
   @(top_inst.m_memory.mem[4] == 8) $display("IN D: mem[4] = 8 PASS");
-
+  
   @(top_inst.m_memory.mem[3] == 8) $display("SUB C, C, D: mem[3] = 16 - 8 = 8 PASS");
-
+  
   @(top_inst.m_memory.mem[5] == 8) $display("MOV E, C: mem[5] = 8 PASS");
-
+  
+  @(top_inst.m_cpu.r_out == 16) $display("OUT E: out = 16 PASS");
+  
   @(top_inst.m_memory.mem[5] == 64) $display("MUL E, E, C: mem[5] = 64 PASS");
 
-  #0;
+  @(top_inst.m_cpu.r_out == 64) $display("OUT E: out = 64 PASS");
+  
+  #0; 
 end
 
 initial begin
