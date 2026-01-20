@@ -23,61 +23,22 @@ initial begin
   forever #5 r_clk = ~r_clk;
 end
 
-integer current_test = 0;
-initial forever begin
-  #10;
-  case (current_test)
-    0: begin
-      if (top_inst.m_memory.mem[1] == 8) begin
-        $display("IN A: mem[1] = 8 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    1: begin
-      if (top_inst.m_memory.mem[2] == 8) begin
-        $display("MOV B, A: mem[2] = 8 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    2: begin
-      if (top_inst.m_memory.mem[3] == 16) begin
-        $display("ADD C, A, B: mem[3] = 16 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    3: begin
-      if (top_inst.m_memory.mem[4] == 8) begin
-        $display("IN D: mem[4] = 8 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    4: begin
-      if (top_inst.m_memory.mem[3] == 8) begin
-        $display("SUB C, C, D: mem[3] = 16 - 8 = 8 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    5: begin
-      if (top_inst.m_memory.mem[5] == 8) begin
-        $display("MOV E, C: mem[5] = 8 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    6: begin
-      if (top_inst.m_memory.mem[5] == 64) begin
-        $display("MUL E, E, C: mem[5] = 64 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    2: begin
-      if (top_inst.m_memory.mem[3] == 16) begin
-        $display("ADD C, A, B: mem[3] = 16 PASS");
-        current_test = current_test + 1;
-      end
-    end
-    default: begin
-    end
-  endcase
+initial begin
+  @(top_inst.m_memory.mem[1] == 8) $display("IN A: mem[1] = 8 PASS");
+
+  @(top_inst.m_memory.mem[2] == 8) $display("MOV B, A: mem[2] = 8 PASS");
+
+  @(top_inst.m_memory.mem[3] == 16) $display("ADD C, A, B: mem[3] = 16 PASS");
+
+  @(top_inst.m_memory.mem[4] == 8) $display("IN D: mem[4] = 8 PASS");
+
+  @(top_inst.m_memory.mem[3] == 8) $display("SUB C, C, D: mem[3] = 16 - 8 = 8 PASS");
+
+  @(top_inst.m_memory.mem[5] == 8) $display("MOV E, C: mem[5] = 8 PASS");
+
+  @(top_inst.m_memory.mem[5] == 64) $display("MUL E, E, C: mem[5] = 64 PASS");
+
+  #0;
 end
 
 initial begin
