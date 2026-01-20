@@ -15,11 +15,11 @@ reg r_control = 0;
 wire [15:0] w_code;
 
 ps2 dut(
-  .i_clk(r_clk),
-  .i_rst_n(r_rst_n),
-  .i_ps2_clk(r_ps2_clk),
-  .i_ps2_data(r_ps2_data),
-  .i_control(r_control),
+  .clk(r_clk),
+  .rst_n(r_rst_n),
+  .ps2_clk(r_ps2_clk),
+  .ps2_data(r_ps2_data),
+  .control(r_control),
   .o_code(w_code)
 );
 

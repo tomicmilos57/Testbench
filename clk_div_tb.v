@@ -11,9 +11,9 @@ wire w_out;
 
 localparam DIV = 8;
 clk_div #(.DIVISOR(DIV)) dut(
-  .i_clk(r_clk),
-  .i_rst_n(r_rst_n),
-  .o_out(w_out)
+  .clk(r_clk),
+  .rst_n(r_rst_n),
+  .out(w_out)
 );
 
 integer i;

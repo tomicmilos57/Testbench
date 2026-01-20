@@ -11,10 +11,10 @@ reg r_in = 0;
 wire w_out;
 
 debouncer dut(
-  .i_clk(r_clk),
-  .i_rst_n(r_rst_n),
-  .i_in(r_in),
-  .o_out(w_out)
+  .clk(r_clk),
+  .rst_n(r_rst_n),
+  .in(r_in),
+  .out(w_out)
 );
 
 localparam SIZE = 3;

@@ -5,9 +5,9 @@ wire [3:0] w_ones;
 wire [3:0] w_tens;
 
 bcd dut(
-  .i_in(r_in),
-  .o_ones(w_ones),
-  .o_tens(w_tens)
+  .in(r_in),
+  .ones(w_ones),
+  .tens(w_tens)
 );
 
 integer i;

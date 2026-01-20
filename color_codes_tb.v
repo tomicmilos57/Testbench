@@ -4,8 +4,8 @@ reg [5:0] r_num = 0;
 wire [23:0] w_code;
 
 color_codes dut(
-  .i_num(r_num),
-  .o_code(w_code)
+  .num(r_num),
+  .code(w_code)
 );
 
 function [11:0] map12;

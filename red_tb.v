@@ -11,9 +11,10 @@ end
 reg r_test = 0;
 wire w_result;
 red dut(
-  r_test,
-  r_clk,
-  w_result
+  .clk(r_clk),
+  .rst_n(1),
+  .in(r_test),
+  .out(w_result)
 );
 
 initial begin

@@ -13,12 +13,12 @@ wire w_control;
 wire [3:0] w_num;
 
 scan_codes dut(
-  .i_clk(r_clk),
-  .i_rst_n(r_rst_n),
-  .i_code(r_code),
-  .i_status(r_status),
-  .o_control(w_control),
-  .o_num(w_num)
+  .clk(r_clk),
+  .rst_n(r_rst_n),
+  .code(r_code),
+  .status(r_status),
+  .control(w_control),
+  .num(w_num)
 );
 
 reg [15:0] codes [0:9];
